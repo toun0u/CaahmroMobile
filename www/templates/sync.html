@@ -1,0 +1,20 @@
+<ion-view view-title="Synchronisation">
+  <ion-content>
+    <div class="card">
+    	<div class="item info">
+    		<h2>{{message}}</h2>
+    		<div id="syncButton">
+                <button class="button button-positive" ng-click="sync()">
+        			Synchroniser
+        		</button>
+            </div>
+            <div id="suite">
+                <button class="button button-positive" ng-click="redirect()">
+                    Sélectionner un client
+                </button>                
+            </div>
+    		<ion-spinner id="spinner" class="android-positive"></ion-spinner>
+    	</div>
+    </div>
+  </ion-content>
+</ion-view>

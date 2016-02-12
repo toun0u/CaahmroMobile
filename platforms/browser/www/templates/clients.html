@@ -1,0 +1,34 @@
+<ion-view view-title="Clients">
+  <ion-content>
+  	<div class="item item-input">
+  		<input ng-model='motCle'type="search" placeholder="Chercher parmi les clients">
+  		<button class="button button-small button-positive search" ng-click="search(motCle)">
+  			<i class="icon ion-android-search"></i>
+  		</button>
+  	</div>
+  	<div ng-repeat="client in clients" class="card">
+  		<div class="item item-divider">
+  			<h2>{{client.nom}}</h2>
+  		</div>
+  		<div class="item item-text-wrap">
+  			<ul class="list">
+  				<li class="item">
+  					<h3>Code client: </h3>{{client.code_client}}
+  				</li>
+  				<li class="item">
+  					<h3>Adresse:</h3> {{client.adresse}}
+  				</li>
+  				<li class="item">
+  					<h3>Ville:</h3> {{client.ville}}
+  				</li>
+  			</ul>
+  		</div>
+  		<div class='item item-divider'>
+  			<div class='button-bar'>
+  				<a class='button button-small button-positive' ng-click="select({{client.code_client}})">Sélectionner</a>
+  				<a class='button button-small button-positive' ng-click="showDetail({{client.id}})">Détail</a>
+  			</div>
+  		</div>
+  	</div>
+  </ion-content>
+</ion-view>

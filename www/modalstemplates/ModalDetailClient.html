@@ -1,0 +1,31 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Détail {{client.nom}}</h1>
+    <div class="button">
+    <button class="button button-clear" ng-click="closeDetail()">modifier</button>
+    <button class="button button-clear delete" ng-click="closeDetail()">supprimer</button>
+    <button class="button button-clear close" ng-click="closeDetail()">
+    	<i class="icon ion-android-cancel"></i>
+    </button>
+  	</div>
+  </ion-header-bar>
+  <ion-content>
+  	<div class="list">
+	  	<div class="item">
+	  		<h4>Code Client:</h4> {{client.code_client}}
+	  	</div>
+	  	<div class="item">
+	  		<h4>Adresse:</h4> {{client.adresse}}
+	  	</div>
+	  	<div class="item">
+	  		<h4>Ville:</h4> {{client.ville}}
+	  	</div>
+	  	<div class="item">
+	  		<h4>Pays:</h4> {{client.pays}}
+	  	</div>
+	  	<div class="commentaire detail">
+	  		<h4>Commentaire:</h4> {{client.commentaire}}
+	  	</div>	
+  	</div>
+  </ion-content>
+</ion-modal-view>

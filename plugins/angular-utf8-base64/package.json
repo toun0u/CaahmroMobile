@@ -1,0 +1,34 @@
+{
+  "name": "angular-utf8-base64",
+  "version": "0.0.2",
+  "author": {
+    "name": "Ivan Hayes",
+    "url": "http://www.ivanhayes.com"
+  },
+  "description": "Base64 encoding/decoding with UTF8 support for AngularJS Apps, and including CommonJS module support.",
+  "main": "angular-utf8-base64.js",
+  "keywords": [
+    "Base64",
+    "angular",
+    "javascript",
+    "library",
+    "encoding",
+    "ajax"
+  ],
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/munkychop/angular-utf8-base64"
+  },
+  "readme": "# angular-utf8-base64\n\nAngularJS service for UTF-8 and Base64 and Base64url Javascript Encoding.\n\nCommonJS support wrapper for [the version by Andrey Bezyazychniy](https://github.com/stranger82/angular-utf8-base64). His implementation simply puts an AngularJS module wrapper around the [Really fast Javascript Base64 encoder/decoder with utf-8 support](http://jsbase64.codeplex.com/releases/view/89265), and this version wraps both to provide CommonJS support.\n\n\n## Installation\n\n### NPM\n\n```sh\nnpm install angular-utf8-base64\n```\n\n```html\n<script src=\"angular-utf8-base64.js\"></script>\n```\n\n## Usage\n\n```javascript\nangular\n    .module('someApp', ['utf8-base64'])\n    .controller('someController', [\n\n        '$scope', 'base64',\n        function ($scope, base64) {\n\n            $scope.encoded = base64.encode('a string');\n            $scope.decoded = base64.decode('YSBzdHJpbmc=');\n    }]);\n```\n\n### Base64Url Support\n\nCommonly used for supporting JWS and JWT encodings, base64url encoding creates a URL safe output.\n\n```javascript\nangular\n    .module('someApp', ['utf8-base64'])\n    .controller('someController', [\n\n        '$scope', 'base64',\n        function ($scope, base64) {\n\n            $scope.encoded = base64.urlencode('a string');\n            $scope.decoded = base64.urldecode('YSBzdHJpbmc');\n    }]);\n```\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/munkychop/angular-utf8-base64/issues"
+  },
+  "_id": "angular-utf8-base64@0.0.2",
+  "dist": {
+    "shasum": "752092060ed68b53f9b212413529fa29dd82234a"
+  },
+  "_from": "angular-utf8-base64@",
+  "_resolved": "https://registry.npmjs.org/angular-utf8-base64/-/angular-utf8-base64-0.0.2.tgz"
+}

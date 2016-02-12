@@ -1,0 +1,20 @@
+<ion-view view-title="Catalogue">
+  <ion-content>
+  	<div class="item item-input">
+      <div id="backbutton">
+        <a class="button button-small icon-left ion-chevron-left button-clear button-dark" ng-click="retour()"></a>
+      </div>
+  		<input ng-model="motCle" type="search" placeholder="Chercher un produit">
+  		<button class="button button-small button-positive search" ng-click="search(motCle)">
+  			<i class="icon ion-android-search"></i>
+  		</button>
+  	</div>
+  	<div ng-repeat="famille in familles" class="card">
+  		<ul class="list-cata">
+  			<li class='item' ng-click="nextFamilies({{famille.id}},{{famille.depth}})">
+  			{{famille.label}}
+  			<li>
+  		<ul>
+  	</div>
+  </ion-content>
+</ion-view>

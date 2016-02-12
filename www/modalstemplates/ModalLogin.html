@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Authentifiez-vous pour continuer</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">
+        <i class="icon ion-android-cancel"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Identifiant</span>
+        <input type="text" placeholder="Identifiant" ng-model="loginData.username">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Mot de passe</span>
+          <input type="password" placeholder="mot de passe" ng-model="loginData.password">
+      </label>
+      <label class="item">
+        <button class="button button-block button-positive login" ng-click='doLogin(loginData)'>S'authentifier</button>
+      </label>
+      <div id='msg'>
+        <label class='item'>
+          {{message}} 
+        </label>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
