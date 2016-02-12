@@ -21,7 +21,8 @@ angular.module('starter.controllers')
 			var clts = sync.clients();
 			clts.then(function(){
 				status.push('success');
-				console.log(clts);
+				console.log(clts.$$state);
+				dataInjector.clients(clts.$$state.value.data.clients);
 				completed = completed + 1;
 			},function(reason){
 				status.push(reason);

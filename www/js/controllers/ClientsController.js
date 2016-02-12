@@ -12,22 +12,23 @@ ctrls.controller('ClientCtrl', function($scope, $ionicModal, $cordovaSQLite) {
 		db = $cordovaSQLite.openDB({name: 'my.db'});
 		db.executeSql('SELECT * FROM clients AS clt',[], function(res){
 			//console.log(db);
-			//console.log(res.rows);
+			console.log(res.rows);
 			var clts = res.rows;
 			for(var i = 0; i<res.rows.length; i++){
-				var array = $.map(clts.item(i), function(value, index){
-					return[value];
-				});
-				$scope.clients.push(array);
+				console.log(clts.item(i));
+				var a = clts.item(i);
+				var tempObj = {};
+				for(var key in a){
+					tempObj[key]=a[key];
+				}
+				$scope.clients.push(tempObj);
 			}
 			console.log($scope.clients);	
 		}, function(error){
 			console.log(error);
 		});
-		var res = $cordovaSQLite.execute(db, 'SELECT * FROM clients AS clt');
-		//console.log(res);
 	});
-	
+	console.log($scope.clients);
 	//console.log($scope.clients);
 	//console.log($scope.clients[0]);
 	$scope.showDetail= function (id){

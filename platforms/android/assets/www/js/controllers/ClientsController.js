@@ -6,16 +6,28 @@ ctrls.controller('ClientCtrl', function($scope, $ionicModal, $cordovaSQLite) {
 	}).then(function(modal){
 		$scope.modal=modal;
 	});
-	$scope.clients = [
-		{id: 1, nom : "test1", code_client: "000003", ville: "Nancy", adresse: "2 rue du test", commentaire: "je suis le voisin du test1 quifait un super long commentaire pour voir comment ionic gère les long texte passkon sait jamais parfois ça peut faire chier maiso n continue parce que c'est pas assez long ça devient nimportequoi et on continue encore pour la beauté de la science parce qu'on sais jamais des fois que les mecs aient envie de raconter leurs life", pays: 'France'},
-		{id: 2, nom : "test2", code_client: "000004", ville: "Metz", adresse: "4 rue du test", commentaire:"je suis le voisin du test2", pays: 'France'},
-	];
-
-	//$scope.clients = [];
-	/*var res=$cordovaSQLite.execute(db, 'SELECT * FROM clients');
-	res.forEach(function(clt, index){
-		$scope.clients.push(clt);
-	})*/
+	$scope.clients = [];
+	var db;
+	document.addEventListener('deviceready', function(){
+		db = $cordovaSQLite.openDB({name: 'my.db'});
+		db.executeSql('SELECT * FROM clients AS clt',[], function(res){
+			//console.log(db);
+			//console.log(res.rows);
+			var clts = res.rows;
+			for(var i = 0; i<res.rows.length; i++){
+				var array = $.map(clts.item(i), function(value, index){
+					return[value];
+				});
+				$scope.clients.push(array);
+			}
+			console.log($scope.clients);	
+		}, function(error){
+			console.log(error);
+		});
+		var res = $cordovaSQLite.execute(db, 'SELECT * FROM clients AS clt');
+		//console.log(res);
+	});
+	
 	//console.log($scope.clients);
 	//console.log($scope.clients[0]);
 	$scope.showDetail= function (id){

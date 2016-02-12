@@ -2,9 +2,8 @@ var services=angular.module('starter.services');
 
 services.factory('dataInjector', function($cordovaSQLite){
 	return{
-		clients:function(res){
+		clients:function(clients){
 			var req = "INSERT INTO clients VALUES (?,?,?,?,?,?,?,?,?)";
-			clients = res.$$state.value.data.clients;
 			clients.forEach(function(clt, index){
 				console.log(clt.id);
 				var param = [
